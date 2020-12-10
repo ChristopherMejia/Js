@@ -1,0 +1,30 @@
+Lenguaje interpretado, orientado a objetos débilmente tipado y dinámico.
+
+Valores primitivos: entero, strings, boolean, null, undefined
+Tipos objetos:  array, [], {}
+
+typeof : sirve para conocer que tipo de dato es una variable. 
+toUpperCase(): Convierte las letras a mayusculas
+toLowerCase(): Convierte las letras en minusculas
+
+charAt(parametro): Optiene un caracter de acuerdo a la posición
+length: Optiene numero de caracteres de alguna cadena
+substr(parametro, segundo parametro): ??
+
+promp(); Funcion para recibir datos 
+
+Libreria "Math" cuenta con varias funciones para las operaciones
+por ejemplo:
+
+Math.pow(10,2); Eleve a la potencia el primer parametro
+Math.round(6.5); Redondea al numero entero más cercano
+
+toString(); Funcion para imprimir en cadena una variable
+toFixed(); Funcion que imprime un limite de decimales
+
+
+var personas = [,,,] <- Arrays
+var paula = {
+	nombre: ..,
+	edad: ...,
+} <- Objeto
