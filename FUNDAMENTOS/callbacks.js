@@ -10,24 +10,21 @@ const opts = {crossDomain: true}
 function getPerson(id, callback){
     const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
     
-    $.get(url, opts, function(persona){
-        console.log(`Hola, yo soy- ${persona.name}`)
-        if(callback){
-            callback()
-        }
+    $.get(url, opts, callback).fail(function(){
+        console.log(`Sucedio un Error, no se pudo obtener el personaje ${id}`)
     })
-
-    
 }
 
-getPerson(1, function(){
-    getPerson(2, function(){
-        getPerson(3, function(){
-            getPerson(4, function(){
-                getPerson(5)
+getPerson(1, function(persona){
+    console.log(`Hola, yo soy ${persona.name}`)
+    getPerson(2, function(persona){
+        console.log(`Hola, yo soy ${persona.name}`)
+        getPerson(3, function(persona){
+            console.log(`Hola, yo soy ${persona.name}`)
+            getPerson(4, function(persona){
+                console.log(`Hola, yo soy ${persona.name}`)
             })
         })
     })
 })
-
 
