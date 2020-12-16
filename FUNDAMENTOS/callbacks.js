@@ -3,19 +3,31 @@ const PEOPLE_URL = 'people/:id'
 const opts = {crossDomain: true}
 
 //Arrow Function
-const onPeopleResponse = (persona) => {
-    console.log(`Hola, yo soy- ${persona.name}`)
-}
+// const onPeopleResponse = (persona) => {
+    
+// }
 
-function getPerson(id){
+function getPerson(id, callback){
     const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
-    $.get(url, opts, onPeopleResponse )
+    
+    $.get(url, opts, function(persona){
+        console.log(`Hola, yo soy- ${persona.name}`)
+        if(callback){
+            callback()
+        }
+    })
+
+    
 }
 
-getPerson(1)
-getPerson(2)
-getPerson(3)
-getPerson(4)
-getPerson(5)
+getPerson(1, function(){
+    getPerson(2, function(){
+        getPerson(3, function(){
+            getPerson(4, function(){
+                getPerson(5)
+            })
+        })
+    })
+})
 
 
