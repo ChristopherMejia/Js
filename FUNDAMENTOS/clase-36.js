@@ -52,13 +52,22 @@ onError=(id)=> {
 
 
 // Promesas en Paralelo
-
-let array = [1,2,3,4,5,6]
-
-let promesas = array.map( (id) => obtenerPersonaje(id))
-Promise
-    .all(promesas)
-    .then(function(personaje){ console.log(personaje) } )
-    .catch(onError)
-
+async function obtenerPersonajes(){
+    let array = [1,2,3,4,5,6]
+    let promesas = array.map( (id) => obtenerPersonaje(id))
+    
+    try{
+        let personajes = await Promise.all(promesas)
+        console.log(personajes)
+    }catch(id){
+        onError(id)
+    }
+    
+    // Promise
+    // .all(promesas)
+    // .then(function(personaje){ console.log(personaje) } )
+    // .catch(onError)
+    
+}
+obtenerPersonajes()
 
