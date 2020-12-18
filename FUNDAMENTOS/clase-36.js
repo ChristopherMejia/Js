@@ -7,24 +7,43 @@ const opts = {crossDomain: true}
     
 // }
 
-function getPerson(id, callback){
-    const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
-    
-    $.get(url, opts, callback).fail(function(){
-        console.log(`Sucedio un Error, no se pudo obtener el personaje ${id}`)
+function obtenerPersonaje(id){
+    return new Promise((resolve, reject)=>{
+        const url = `${API_URL}${PEOPLE_URL.replace(':id',id)}`
+
+        $.get(url,opts, function(data){
+            resolve(data)
+        })
+        .fail(()=>reject(id))
     })
 }
 
-getPerson(1, function(persona){
-    console.log(`Hola, yo soy ${persona.name}`)
-    getPerson(2, function(persona){
-        console.log(`Hola, yo soy ${persona.name}`)
-        getPerson(3, function(persona){
-            console.log(`Hola, yo soy ${persona.name}`)
-            getPerson(4, function(persona){
-                console.log(`Hola, yo soy ${persona.name}`)
-            })
-        })
-    })
-})
+onError=(id)=> {
+    console.log(`Sucedio un error al obtener el personaje ${id}`)
+}
 
+obtenerPersonaje(1)
+    .then(function(personaje){
+        console.log(`El personaje 1 es ${personaje.name}`)
+        return obtenerPersonaje(2)
+    })
+    .then(function(personaje){
+        console.log(`El personaje 2 es ${personaje.name}`)
+        return obtenerPersonaje(3)
+    })
+    .then(function(personaje){
+        console.log(`El personaje 3 es ${personaje.name}`)
+        return obtenerPersonaje(4)
+    })
+    .then(function(personaje){
+        console.log(`El personaje 4 es ${personaje.name}`)
+        return obtenerPersonaje(5)
+    })
+    .then(function(personaje){
+        console.log(`El personaje 5 es ${personaje.name}`)
+        return obtenerPersonaje(6)
+    })
+    .then(function(personaje){
+        console.log(`El personaje 6 es ${personaje.name}`)
+    })
+    .catch(onError)
