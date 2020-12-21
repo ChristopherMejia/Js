@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset ="utf-8">
+        <title>Memorizando-Factorial</title>
+    </head>
+    <body>
+        <script>
+            function Factorial(n){
+                if(!this.cache){
+                    this.cache = {}
+                }
+                //debugger
+                if(this.cache[n]){
+                    return this.cache[n]
+                }
+
+                if(n === 1){
+                    return 1
+                }
+                //debugger
+                this.cache[n] = n * Factorial(n-1)
+                return this.cache[n]
+            }
+        </script>
+    </body>
+</html>
