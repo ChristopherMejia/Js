@@ -28,3 +28,10 @@ var paula = {
 	nombre: ..,
 	edad: ...,
 } <- Objeto
+
+
+Promesas: Pensemos las promesas como valores que aun no conocemos.
+Las promesas tienen 3 estados, 
+Estado Pending (creación de la promesa)
+Estado fulfilled (Cuando la promesa se resuelve)
+Estado reject (Si ocurre algun error en la función asincrona)
