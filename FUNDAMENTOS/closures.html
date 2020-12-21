@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset ="utf-8">
+        <title>Closures</title>
+    </head>
+    <body>
+    <script>
+        function crearSaludo(finalFrase){
+            return function (nombre){
+                console.log(`Hola ${nombre} ${finalFrase}`)
+            }
+        }
+
+        const saludoColombiano = crearSaludo('Parce')
+        const saludoMexicano = crearSaludo('Que onda')
+        const saludoChileno = crearSaludo('Che')
+
+        saludoColombiano('Chris')
+        saludoMexicano('Chris')
+        saludoChileno('Chris')
+
+    </script>
+    </body>
+</html>
