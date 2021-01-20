@@ -8,7 +8,12 @@ toUpperCase(): Convierte las letras a mayusculas
 toLowerCase(): Convierte las letras en minusculas
 
 charAt(parametro): Optiene un caracter de acuerdo a la posición
-length: Optiene numero de caracteres de alguna cadena
+push('parametro'): agrega elemento a la ultima posición del arreglo
+pop('parametro'): saca el alemento del arreglo
+unshift('parametro): agrega un elemento al inicio del arreglo 
+length: optiene la cantidad de elementos de un arreglo
+shift('parametro) : saca un elemento de la primera posición del arreglo
+indexOf("parametro"): regresa el index o la posición del arreglo. 
 substr(parametro, segundo parametro): ??
 
 promp(); Funcion para recibir datos 
