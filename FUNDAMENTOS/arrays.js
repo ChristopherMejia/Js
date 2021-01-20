@@ -41,6 +41,13 @@ for(var profesor of profesores){
 } 
 
 
+var auto = {
+    marca: 'ford',
+    modelo: '2021',
+    color: 'azul',
+}
+
+console.log(auto)
 
 
 // typeof : sirve para conocer que tipo de dato es una variable. 
